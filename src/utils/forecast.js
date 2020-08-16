@@ -13,7 +13,13 @@ const forecast = (latitude, longtitude, callback) => {
     } else {
       callback(
         undefined,
-        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} fahrenheit outsite. But feels like ${body.current.feelslike} fahrenheit outside.`
+        `${
+          body.current.is_day === "no" ? "This tonight" : "Today"
+        } is ${body.current.weather_descriptions[0].toLowerCase()}. It is currently ${
+          body.current.temperature
+        } fahrenheit outsite. But feels like ${
+          body.current.feelslike
+        } fahrenheit outside.`
       );
     }
   });
